@@ -85,3 +85,49 @@ Stack trace:
 REQUEST_URI=/sandbox/app/
 HTTP_REFERER=http://localhost/sandbox/
 ---
+2012/07/11 13:34:55 [error] [exception.CException] exception 'CException' with message 'Property "Menu.name" is not defined.' in /home/mirec/sandbox/framework/base/CComponent.php:131
+Stack trace:
+#0 /home/mirec/sandbox/app/protected/widgets/views/menu.php(9): CComponent->__get('name')
+#1 /home/mirec/sandbox/framework/web/CBaseController.php(131): require('/home/mirec/san...')
+#2 /home/mirec/sandbox/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/mirec/san...', NULL, false)
+#3 /home/mirec/sandbox/framework/web/widgets/CWidget.php(244): CBaseController->renderFile('/home/mirec/san...', NULL, false)
+#4 /home/mirec/sandbox/app/protected/widgets/Menu.php(5): CWidget->render('menu')
+#5 /home/mirec/sandbox/framework/web/CBaseController.php(174): Menu->run()
+#6 /home/mirec/sandbox/app/protected/views/layouts/main.php(3): CBaseController->widget('Menu')
+#7 /home/mirec/sandbox/framework/web/CBaseController.php(127): require('/home/mirec/san...')
+#8 /home/mirec/sandbox/framework/web/CBaseController.php(96): CBaseController->renderInternal('/home/mirec/san...', Array, true)
+#9 /home/mirec/sandbox/framework/web/CController.php(785): CBaseController->renderFile('/home/mirec/san...', Array, true)
+#10 /home/mirec/sandbox/app/protected/controllers/SiteController.php(32): CController->render('index')
+#11 /home/mirec/sandbox/framework/web/actions/CInlineAction.php(50): SiteController->actionIndex()
+#12 /home/mirec/sandbox/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#13 /home/mirec/sandbox/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#14 /home/mirec/sandbox/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /home/mirec/sandbox/framework/web/CWebApplication.php(276): CController->run('')
+#16 /home/mirec/sandbox/framework/web/CWebApplication.php(135): CWebApplication->runController('')
+#17 /home/mirec/sandbox/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#18 /home/mirec/sandbox/app/index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/sandbox/app/
+HTTP_REFERER=http://localhost/sandbox/
+---
+2012/07/11 13:43:30 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'test.Email' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `Email`.
+in /home/mirec/sandbox/app/protected/models/Record.php (27)
+in /home/mirec/sandbox/app/protected/controllers/SiteController.php (32)
+in /home/mirec/sandbox/app/index.php (13)
+2012/07/11 13:43:30 [error] [exception.CDbException] exception 'CDbException' with message 'The table "Email" for active record class "Record" cannot be found in the database.' in /home/mirec/sandbox/framework/db/ar/CActiveRecord.php:2264
+Stack trace:
+#0 /home/mirec/sandbox/framework/db/ar/CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(Record))
+#1 /home/mirec/sandbox/app/protected/models/Record.php(27): CActiveRecord::model('Record')
+#2 /home/mirec/sandbox/app/protected/controllers/SiteController.php(32): Record::model()
+#3 /home/mirec/sandbox/framework/web/actions/CInlineAction.php(50): SiteController->actionIndex()
+#4 /home/mirec/sandbox/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /home/mirec/sandbox/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#6 /home/mirec/sandbox/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/mirec/sandbox/framework/web/CWebApplication.php(276): CController->run('index')
+#8 /home/mirec/sandbox/framework/web/CWebApplication.php(135): CWebApplication->runController('site/index')
+#9 /home/mirec/sandbox/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /home/mirec/sandbox/app/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/sandbox/app/index.php?r=site/index
+HTTP_REFERER=http://localhost/sandbox/app/index.php?r=site/index
+---
